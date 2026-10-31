@@ -22,8 +22,8 @@ def lerp(a, b, t):
     A, B = P.rgb(a), P.rgb(b)
     return "#%02x%02x%02x" % tuple(round(A[i] + (B[i] - A[i]) * t) for i in range(3))
 
-RAMP = [(0.0, "#000000"), (0.07, P.VOID), (0.145, "#120607"), (0.20, P.BASE), (0.235, "#1a090b"),
-        (0.26, P.SURFACE), (0.30, "#240c10"), (0.34, "#311015"), (0.45, "#6e1a26"), (0.58, "#a8505c"),
+RAMP = [(0.0, "#000000"), (0.07, P.VOID), (0.145, "#160708"), (0.20, P.BASE), (0.235, "#220c0e"),
+        (0.26, P.SURFACE), (0.30, "#301015"), (0.34, "#40151b"), (0.45, "#982434"), (0.58, "#ac525e"),
         (0.85, P.TEXT), (1.0, P.TEXT_HI)]
 
 def grey(h):
@@ -52,7 +52,7 @@ HEX = re.compile(r"#[0-9a-fA-F]{6}\b")
 svg = HEX.sub(remap, (SRC / "KvArcDark.svg").read_text())
 # text fields sit recessed (darker than buttons)
 svg = re.sub(r'style="fill:#[0-9a-fA-F]{6}" id="lineedit-(normal|focused|disabled|toggled|pressed)"',
-             lambda m: f'style="fill:{"#0c0405" if m.group(1) != "disabled" else P.BASE}" id="lineedit-{m.group(1)}"', svg)
+             lambda m: f'style="fill:{"#18080a" if m.group(1) != "disabled" else P.BASE}" id="lineedit-{m.group(1)}"', svg)
 (OUT / "Bloodfeed.svg").write_text(svg)
 
 cfg = (SRC / "KvArcDark.kvconfig").read_text()
