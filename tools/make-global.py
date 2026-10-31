@@ -166,5 +166,49 @@ def main():
     print("repo ->", D, "| dist ->", dist)
 
 
+LISTING = """NAME: Bloodfeed — Global Theme (Plasma 6)
+CATEGORY: Global Themes (Plasma 6)
+VERSION: 1.0
+LICENSE: GPL-3.0-or-later
+SOURCE: https://github.com/numbpill3d/bloodfeed-global
+UPLOAD: bloodfeed-global.tar.gz
+SCREENSHOTS (in order): {shots}
+TAGS: {tags}
+
+SUMMARY:
+A VHS tape dubbed in blood: red-black surfaces, scanlines and tape grain, a crimson glow, and a rewind/play splash screen.
+
+DESCRIPTION:
+A VHS tape dubbed in blood: red-black surfaces, scanlines and tape grain, a crimson glow, and a rewind/play splash screen. One click switches the whole Plasma desktop.
+
+Bloodfeed is the crimson cut of Nightfeed. Same tape, same face, re-lit: every surface carries a red cast, accents glow crimson, and the text is warm bone.
+
+- Splash screen: the tape rewinds (REW ◀◀, fast tracking band) and then plays (PLAY ▶, SIGNAL BLEEDING). Crimson tape blocks fill as Plasma's six startup stages arrive.
+- Sets the colour scheme, Plasma style, Aurorae window decoration, icons, Kvantum widget style and splash to Bloodfeed.
+- Ships no panel layout, so applying it never rearranges your panels or widgets.
+
+Requirements: Plasma 6. Install the other Bloodfeed pieces from the store (colour scheme, Plasma style, Aurorae, icons, Kvantum), or the global theme falls back to Breeze for whatever is missing. Or get all of them in one go from GitHub: https://github.com/numbpill3d/bloodfeed-global (./install.sh --apply). The icons need Tela-circle-dark; the widget style needs Kvantum.
+
+Install: System Settings → Colors & Themes → Global Theme → Install from File, or extract to ~/.local/share/plasma/look-and-feel/. The splash alone can be picked under Colors & Themes → Splash Screen.
+
+Part of the Bloodfeed suite: SDDM login, Plymouth boot splash, global theme + splash screen, Plasma style, Aurorae window decoration, colour scheme, Kvantum, icons, and Konsole/kitty colours. Source for every piece: https://github.com/numbpill3d/bloodfeed
+"""
+
+
+def store_kit():
+    """~/Documents/Bloodfeed Release/bloodfeed-global: upload tarball, screenshots, listing."""
+    k = Path.home() / "Documents/Bloodfeed Release/bloodfeed-global"
+    if k.exists():
+        shutil.rmtree(k)
+    (k / "screenshots").mkdir(parents=True)
+    order = ["desktop.jpg", "splash.jpg", "splash-rewind.jpg", "widgets.jpg", "decoration.jpg"]
+    for n in order:
+        shutil.copy(D / "screenshots" / n, k / "screenshots" / n)
+    shutil.copy(ROOT / "dist/scorn.bloodfeed.tar.gz", k / "bloodfeed-global.tar.gz")
+    (k / "STORE-LISTING.txt").write_text(LISTING.format(shots=", ".join("screenshots/" + n for n in order), tags=", ".join(TOPICS)))
+    print("store kit ->", k)
+
+
 if __name__ == "__main__":
     main()
+    store_kit()
