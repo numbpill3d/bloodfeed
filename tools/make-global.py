@@ -108,6 +108,23 @@ To install only the look-and-feel package and splash, download `scorn.bloodfeed.
 | `extras/icons/Bloodfeed` | `~/.local/share/icons/` |
 | `extras/kvantum/Bloodfeed` | `~/.config/Kvantum/` |
 
+## The rest of the suite
+
+The pieces above are bundled here. The login screen and boot splash need root, so they ship separately:
+
+| piece | repo |
+|---|---|
+| SDDM login | [bloodfeed-sddm](https://github.com/numbpill3d/bloodfeed-sddm) |
+| Plymouth boot splash | [bloodfeed-plymouth](https://github.com/numbpill3d/bloodfeed-plymouth) |
+| Plasma style | [bloodfeed-plasma](https://github.com/numbpill3d/bloodfeed-plasma) |
+| Aurorae window decoration | [bloodfeed-aurorae](https://github.com/numbpill3d/bloodfeed-aurorae) |
+| Colour scheme | [bloodfeed-colors](https://github.com/numbpill3d/bloodfeed-colors) |
+| Kvantum widget style | [bloodfeed-kvantum](https://github.com/numbpill3d/bloodfeed-kvantum) |
+| Icon theme | [bloodfeed-icons](https://github.com/numbpill3d/bloodfeed-icons) |
+| Konsole + kitty colours | [bloodfeed-konsole](https://github.com/numbpill3d/bloodfeed-konsole) |
+
+Everything at once, with the generators: [bloodfeed](https://github.com/numbpill3d/bloodfeed).
+
 ## Tags
 
 {tags}
