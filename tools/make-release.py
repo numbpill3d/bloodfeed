@@ -26,9 +26,9 @@ GPL = Path("/usr/share/licenses/spdx/GPL-3.0-or-later.txt")
 GH = "https://github.com/numbpill3d"
 VERSION = "1.0"
 
-BLURB = ("Bloodfeed is a night-vision VHS look for KDE Plasma 6, built around a cobalt-lit face on near-black: "
-         "cobalt-black surfaces, faint scanlines and tape grain, and a slight violet glow on whatever has focus.")
-BASE_TAGS = ["bloodfeed", "kde", "plasma6", "dark", "vhs", "scanlines", "cobalt", "violet", "purple", "retro", "analog-horror", "glow"]
+BLURB = ("Bloodfeed is a blood-dubbed VHS look for KDE Plasma 6, built around a crimson-lit face on near-black: "
+         "blood-black surfaces, faint scanlines and tape grain, and a slight crimson glow on whatever has focus.")
+BASE_TAGS = ["bloodfeed", "kde", "plasma6", "dark", "vhs", "scanlines", "crimson", "red", "blood", "horror", "retro", "analog-horror", "glow"]
 
 PIECES = {}
 
@@ -55,12 +55,12 @@ piece("bloodfeed-sddm",
       src=ROOT / "sddm/bloodfeed", tar_top="bloodfeed",
       shots={"login.jpg": "sddm.png", "login-error.jpg": "sddm-error.png"},
       tags=["sddm", "sddm-theme", "login-screen", "qt6", "qml", "vcr", "osd"],
-      summary="A night-vision VHS login for SDDM (Qt6): VCR on-screen display, rolling tracking band, tape grain and tears, violet-glow glass panel.",
+      summary="A blood-dubbed VHS login for SDDM (Qt6): VCR on-screen display, rolling tracking band, tape grain and tears, crimson-glow glass panel.",
       features="""- The wallpaper face as a tape on playback: scanlines, flickering grain, a soft tracking band rolling down the screen and a slow drift, like a tape that never quite settles.
 - Every 7–16 s a tape tear: a slice of the picture jumps sideways and the frame jitters (set `glitches=false` in `theme.conf` to stop it).
 - VCR on-screen display: blinking `PLAY ▶` top left, `AM 11:24` and the date top right, a running tape counter and the host name bottom left.
-- Cobalt glass login panel with a violet glow seam. The password shows as a strip of tape blocks.
-- A wrong password flips the OSD to `STOP ■` with a red `TRACKING ERROR // ACCESS DENIED` and a shake. Logging in fast-forwards (`FF ▶▶`) and the screen collapses to a line like a CRT switching off.
+- Blood-black glass login panel with a crimson glow seam. The password shows as a strip of tape blocks.
+- A wrong password flips the OSD to `STOP ■` with a scarlet `TRACKING ERROR // ACCESS DENIED` and a shake. Logging in fast-forwards (`FF ▶▶`) and the screen collapses to a line like a CRT switching off.
 - Power controls are transport buttons: `❚❚ PAUSE` (suspend), `◀◀ REWIND` (reboot), `■ STOP` (shut down).
 - Pure QtQuick, no shaders: every effect is an image swap or a transform, so it is light on integrated GPUs.""",
       requires="SDDM with the Qt6 greeter (`sddm-greeter-qt6`). The OSD font is bundled.",
@@ -91,10 +91,10 @@ piece("bloodfeed-plymouth",
       src=ROOT / "plymouth/bloodfeed", tar_top="bloodfeed",
       shots={"boot.jpg": "plymouth.png", "password.jpg": "plymouth-password.png", "shutdown.jpg": "plymouth-shutdown.png"},
       tags=["plymouth", "plymouth-theme", "boot-splash", "bootscreen", "luks"],
-      summary="Night-vision VHS boot splash: the cobalt face under scanlines and grain, a rolling tracking band, VCR OSD, tape-block progress.",
+      summary="Blood-dubbed VHS boot splash: the crimson face under scanlines and grain, a rolling tracking band, VCR OSD, tape-block progress.",
       features="""- Live grain, a tracking band rolling top to bottom, and an occasional tape wobble of the picture.
 - VCR OSD: `PLAY ▶` blinks while the deck engages, plus `CH 03 SP` and a tape counter that ticks every second.
-- Boot progress as a strip of 32 violet tape blocks under a glowing **BLOODFEED**.
+- Boot progress as a strip of 32 crimson tape blocks under a glowing **BLOODFEED**.
 - Shutdown shows `STOP ■` / **EJECTING TAPE**, reboot shows `REW ◀◀`.
 - Disk-unlock prompt (LUKS): a glowing field with block bullets.
 - Every word is pre-rendered, so no fonts are needed in the initramfs. Laid out for 16:9 and scaled by screen height.""",
@@ -138,10 +138,10 @@ piece("bloodfeed-plasma",
       src=ROOT / "plasma/desktoptheme/Bloodfeed", tar_top="Bloodfeed",
       shots={"panel.jpg": "panel.png", "desktop.jpg": "desktop.png"},
       tags=["plasma-style", "desktoptheme", "panel", "plasma-theme", "translucent", "blur"],
-      summary="Cobalt-black glass for the Plasma panel, popups and tooltips: tiled VHS scanlines and grain, a violet glow seam and violet-tinted shadows.",
-      features="""- Panel, popups/dialogs, tooltips and widget backgrounds in cobalt-black glass.
+      summary="Blood-black glass for the Plasma panel, popups and tooltips: tiled VHS scanlines and grain, a crimson glow seam and crimson-tinted shadows.",
+      features="""- Panel, popups/dialogs, tooltips and widget backgrounds in blood-black glass.
 - VHS scanlines and tape grain tiled at 1:1, so they never smear or stretch at any panel size.
-- A thin violet seam along the top edge with a soft glow below it, and shadows with a faint violet bleed nearest the frame.
+- A thin crimson seam along the top edge with a soft glow below it, and shadows with a faint crimson bleed nearest the frame.
 - Translucent variants with blur and contrast behind them, plus solid variants for when compositing is off.
 - Everything else (buttons, sliders, task highlights) falls back to Breeze and follows your colour scheme, so the Bloodfeed colour scheme is recommended.""",
       requires="Plasma 6.",
@@ -158,11 +158,11 @@ piece("bloodfeed-aurorae",
       src=ROOT / "aurorae/Bloodfeed", tar_top="Bloodfeed",
       shots={"decoration.jpg": "decoration.png", "buttons.jpg": "buttons.png"},
       tags=["aurorae", "window-decoration", "kwin", "titlebar", "vcr-buttons"],
-      summary="A cobalt-black VHS window frame: a scanline title bar with tape-grain streaks, a violet glow seam, a violet-glow shadow and VCR transport buttons.",
+      summary="A blood-black VHS window frame: a scanline title bar with tape-grain streaks, a crimson glow seam, a crimson-glow shadow and VCR transport buttons.",
       features="""- Title bar with faint scanlines and tape grain that stretches into horizontal VHS streaks.
-- A violet glow seam under the title, with a hot 1 px core.
-- The active window casts a soft violet glow; inactive windows dim to cobalt-black with a plain shadow.
-- Square transport-style buttons that light up violet on hover (close glows REC red). The window-menu button is a VCR `▶ PLAY` triangle.
+- A crimson glow seam under the title, with a hot 1 px core.
+- The active window casts a soft crimson glow; inactive windows dim to blood-black with a plain shadow.
+- Square transport-style buttons that light up crimson on hover (close glows REC scarlet). The window-menu button is a VCR `▶ PLAY` triangle.
 - Centred title, 3 px borders, no rounded corners.""",
       requires="KWin (Plasma 6) with Aurorae.",
       install_store="System Settings → Colors & Themes → Window Decorations → Install from File, or extract to `~/.local/share/aurorae/themes/`.",
@@ -180,10 +180,10 @@ piece("bloodfeed-colors",
       src=ROOT / "colors", tar_top="bloodfeed-colors", files=["Bloodfeed.colors"],
       shots={"palette.jpg": "colors.png", "desktop.jpg": "desktop.png"},
       tags=["color-scheme", "colour-scheme", "dark-theme", "kdeglobals"],
-      summary="Cobalt-black KDE colour scheme with a violet accent and muted selections, sampled from a night-vision wallpaper.",
-      features="""- The surfaces are blue-black, never pure #000: window `#0a0c18`, views `#06070f`, headers `#0f1223`, borders `#1e2552`.
-- Violet `#7b5cff` for the accent, focus and hover, with a dimmer `#33259a` for selections, so a selected row glows without shouting.
-- Pale periwinkle text `#c3c8ee`. The state colours stay cool: REC magenta for negative, teal for positive, muted amber for neutral.
+      summary="Blood-black KDE colour scheme with a crimson accent and muted selections, sampled from a blood-red VHS wallpaper.",
+      features="""- The surfaces are red-black, never pure #000: window `#150809`, views `#0e0506`, headers `#1d0a0d`, borders `#45141b`.
+- Crimson `#dc1f3c` for the accent, focus and hover, with a dim oxblood `#5a0d1a` for selections, so a selected row glows without shouting.
+- Bone text `#e8d2d0`. Negative is a hotter scarlet-orange `#ff6a2b` so errors never blend into the accent; teal for positive, muted amber for neutral.
 - The titlebar colours are set too, for Breeze decorations.""",
       requires="Plasma 5 or 6.",
       install_store="System Settings → Colors & Themes → Colors → Install from File, or copy to `~/.local/share/color-schemes/`.",
@@ -197,10 +197,10 @@ piece("bloodfeed-kvantum",
       src=ROOT / "kvantum/Bloodfeed", tar_top="Bloodfeed",
       shots={"widgets.jpg": "gallery.png", "desktop.jpg": "desktop.png"},
       tags=["kvantum", "qt-style", "widget-style", "qt6", "qt5"],
-      summary="Kvantum widget style in cobalt-black with violet accents: recessed text fields, violet sliders, checks and progress bars, dim selections.",
-      features="""- Built on KvArcDark's engine map. The greys are remapped by luminance onto a cobalt-black ramp, and Arc's blue becomes violet.
+      summary="Kvantum widget style in blood-black with crimson accents: recessed text fields, crimson sliders, checks and progress bars, dim selections.",
+      features="""- Built on KvArcDark's engine map. The greys are remapped by luminance onto a blood-black ramp, and Arc's blue becomes crimson.
 - Text fields sit recessed, darker than the buttons.
-- Sliders, checks, progress bars and focus rings are violet. Selections are a dimmer violet.
+- Sliders, checks, progress bars and focus rings are crimson. Selections are a dimmer crimson.
 - Blurred popups. Matches the Bloodfeed colour scheme.""",
       requires="Kvantum (`kvantum` package), with the widget style set to kvantum.",
       install_store="Extract to `~/.config/Kvantum/` and select **Bloodfeed** in Kvantum Manager, then set the Application Style to kvantum.",
@@ -217,10 +217,10 @@ piece("bloodfeed-icons",
       short="Icon theme", title="Bloodfeed — Icons", category="Full Icon Themes",
       src=ROOT / "icons/Bloodfeed", tar_top="Bloodfeed",
       shots={"icons.jpg": "icons.png", "desktop.jpg": "desktop.png"},
-      tags=["icon-theme", "icons", "folders", "tela", "purple-folders"],
-      summary="Violet folder and places icons plus a VHS-play launcher icon, layered over Tela circle dark.",
-      features="""- Every folder and places icon (home, downloads, music, git, trash and the rest) recoloured to a deep violet with lavender glyphs.
-- A VHS `▶ PLAY` app-launcher icon: a scanlined cobalt disc with a violet ring and glow, used for all `start-here` and `distributor-logo` names, symbolic ones included.
+      tags=["icon-theme", "icons", "folders", "tela", "red-folders"],
+      summary="Crimson folder and places icons plus a VHS-play launcher icon, layered over Tela circle dark.",
+      features="""- Every folder and places icon (home, downloads, music, git, trash and the rest) recoloured to a deep crimson with pale-pink glyphs.
+- A VHS `▶ PLAY` app-launcher icon: a scanlined blood-black disc with a crimson ring and glow, used for all `start-here` and `distributor-logo` names, symbolic ones included.
 - All other icons are inherited from **Tela circle dark**, then breeze-dark.""",
       requires="[Tela circle icon theme](https://github.com/vinceliuice/Tela-circle-icon-theme), dark variant (`Tela-circle-dark`), installed alongside.",
       install_store="Extract to `~/.local/share/icons/` and pick **Bloodfeed** in System Settings → Colors & Themes → Icons. Install Tela-circle-dark first.",
@@ -237,9 +237,9 @@ piece("bloodfeed-konsole",
       files=["Bloodfeed.colorscheme", "Bloodfeed.profile", "bloodfeed-kitty.conf"],
       shots={"terminal.jpg": "terminal.png", "desktop.jpg": "desktop.png"},
       tags=["konsole", "kitty", "terminal", "colorscheme", "terminal-theme"],
-      summary="Cobalt-black terminal colours for Konsole and kitty, with a violet cursor and a cool 16-colour palette.",
-      features="""- A blue-black background with pale periwinkle text and a violet block cursor.
-- 16 colours tuned for the cobalt background: REC magenta, teal, amber, cobalt, violet and sky blue, plus bright variants.
+      summary="Blood-black terminal colours for Konsole and kitty, with a crimson cursor and a warm 16-colour palette.",
+      features="""- A red-black background with bone text and a crimson block cursor.
+- 16 colours tuned for the blood-black background: crimson, teal, amber, rose, pink and salmon, plus bright variants.
 - A Konsole profile with Terminess, a slight translucency and blur, and roomy margins.
 - A kitty theme with matching tab and border colours.""",
       requires="Konsole and/or kitty. The profile uses Terminess Nerd Font if it is installed.",
@@ -329,6 +329,8 @@ def main():
     REPOS.mkdir(exist_ok=True)
     DOCS.mkdir(parents=True, exist_ok=True)
     for repo, p in PIECES.items():
+        if repo == "bloodfeed-global":   # built and published by tools/make-global.py
+            continue
         d = REPOS / repo
         keep_git = d / ".git"
         if d.exists():

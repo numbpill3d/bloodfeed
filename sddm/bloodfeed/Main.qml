@@ -1,8 +1,8 @@
 /*
  * bloodfeed — SDDM theme (Qt6 greeter, pure QtQuick, no shaders)
- * A night-vision tape on playback: the wallpaper face under scanlines, grain,
+ * A tape dubbed in blood, on playback: the wallpaper face under scanlines, grain,
  * a rolling tracking band and the odd tape tear; a VCR on-screen display; a
- * cobalt glass panel with a violet glow seam. All motion is image swaps and
+ * blood-black glass panel with a crimson glow seam. All motion is image swaps and
  * transforms, cheap on the UHD 620.
  */
 
@@ -15,25 +15,25 @@ Item {
     height: Screen.height
 
     // shared with ~/bloodfeed/palette.py
-    readonly property color cVoid:    "#03040a"
-    readonly property color cAbyss:   "#06070f"
-    readonly property color cBase:    "#0a0c18"
-    readonly property color cSurface: "#0f1223"
-    readonly property color cRaised:  "#151a33"
-    readonly property color cEdge:    "#1e2552"
-    readonly property color cEdgeHi:  "#2b347a"
-    readonly property color cCobalt:  "#3343bb"
-    readonly property color cPeri:    "#6981e3"
-    readonly property color cVioDeep: "#2a1d6e"
-    readonly property color cVioLo:   "#4a35b8"
-    readonly property color cVio:     "#7b5cff"
-    readonly property color cVioHi:   "#a38cff"
-    readonly property color cVioGlow: "#c4b5ff"
-    readonly property color cText:    "#c3c8ee"
-    readonly property color cTextHi:  "#e6e8ff"
-    readonly property color cDim:     "#7a80b0"
-    readonly property color cMute:    "#4a5080"
-    readonly property color cRec:     "#e0466e"
+    readonly property color cVoid:    "#0a0304"
+    readonly property color cAbyss:   "#0e0506"
+    readonly property color cBase:    "#150809"
+    readonly property color cSurface: "#1d0a0d"
+    readonly property color cRaised:  "#290e12"
+    readonly property color cEdge:    "#45141b"
+    readonly property color cEdgeHi:  "#641c25"
+    readonly property color cOxblood:  "#98182b"
+    readonly property color cFlesh:    "#e88a90"
+    readonly property color cCrimDeep: "#3a0911"
+    readonly property color cCrimLo:   "#8c1024"
+    readonly property color cCrim:     "#dc1f3c"
+    readonly property color cCrimHi:   "#ff5368"
+    readonly property color cCrimGlow: "#ffa3ad"
+    readonly property color cText:    "#e8d2d0"
+    readonly property color cTextHi:  "#fff1ef"
+    readonly property color cDim:     "#a87e80"
+    readonly property color cMute:    "#6b4549"
+    readonly property color cRec:     "#ff6a2b"
 
     readonly property real   u:     height / 1080
     readonly property string mono:  osdFont.status === FontLoader.Ready ? osdFont.font.family : "monospace"
@@ -159,7 +159,7 @@ Item {
                 source: bg.source; fillMode: bg.fillMode; horizontalAlignment: bg.horizontalAlignment
                 scale: bg.scale
             }
-            Rectangle { anchors.fill: parent; color: root.cPeri; opacity: 0.06 }
+            Rectangle { anchors.fill: parent; color: root.cFlesh; opacity: 0.06 }
         }
 
         Image { anchors.fill: parent; source: "assets/scanlines-1080.png"; smooth: false }
@@ -197,13 +197,13 @@ Item {
     }
 
     // ---- on-screen display ---------------------------------------------------
-    // OSD text: hard white-violet core over two soft violet copies
+    // OSD text: hard bone-white core over two soft crimson copies
     component Osd: Item {
         id: osd
         property alias text: core.text
         property real  size: 30
         property color ink: root.cTextHi
-        property color glow: root.cVio
+        property color glow: root.cCrim
         property bool  bold: true
         implicitWidth: core.implicitWidth; implicitHeight: core.implicitHeight
         Text { x: -1.5 * root.u; y: 0; text: core.text; font: core.font; color: osd.glow; opacity: 0.45 }
@@ -225,8 +225,8 @@ Item {
             id: mode
             size: 46
             text: root.errorMsg.length ? "STOP ■" : (root.loginPending ? "FF ▶▶" : "PLAY ▶")
-            ink: root.errorMsg.length ? "#ffd0dc" : root.cTextHi
-            glow: root.errorMsg.length ? root.cRec : root.cVio
+            ink: root.errorMsg.length ? "#ffc2a3" : root.cTextHi
+            glow: root.errorMsg.length ? root.cRec : root.cCrim
             // PLAY flashes for a while, like a deck that just engaged
             SequentialAnimation on opacity {
                 running: !root.loginPending
@@ -251,7 +251,7 @@ Item {
             anchors.left: parent.left; anchors.bottom: parent.bottom
             spacing: 22 * root.u
             Osd { size: 22; text: "CNT " + root.tapeCounter(root.counter) }
-            Osd { size: 22; bold: false; ink: root.cDim; glow: root.cVioDeep; text: "@ " + (sddm.hostName || "localhost").toUpperCase() }
+            Osd { size: 22; bold: false; ink: root.cDim; glow: root.cCrimDeep; text: "@ " + (sddm.hostName || "localhost").toUpperCase() }
         }
     }
 
@@ -266,14 +266,14 @@ Item {
         Text {
             text: field.label
             font.family: root.mono; font.pixelSize: 15 * root.u; font.letterSpacing: 3 * root.u
-            color: input.activeFocus ? root.cVioHi : root.cDim
+            color: input.activeFocus ? root.cCrimHi : root.cDim
         }
         // glow halo when focused
         Rectangle {
             x: -3 * root.u; y: 22 * root.u - 3 * root.u
             width: well.width + 6 * root.u; height: well.height + 6 * root.u
             color: "transparent"; radius: 5 * root.u
-            border.width: 3 * root.u; border.color: root.cVio
+            border.width: 3 * root.u; border.color: root.cCrim
             opacity: input.activeFocus ? 0.22 : 0
             Behavior on opacity { NumberAnimation { duration: 180 } }
         }
@@ -282,7 +282,7 @@ Item {
             y: 22 * root.u; width: parent.width; height: 46 * root.u
             radius: 3 * root.u
             color: root.cAbyss
-            border.width: 1; border.color: input.activeFocus ? root.cVio : root.cEdge
+            border.width: 1; border.color: input.activeFocus ? root.cCrim : root.cEdge
             TextInput {
                 id: input
                 anchors.fill: parent; anchors.leftMargin: 14 * root.u; anchors.rightMargin: 14 * root.u
@@ -290,7 +290,7 @@ Item {
                 clip: true
                 font.family: root.mono; font.pixelSize: 22 * root.u
                 color: field.secret ? "transparent" : root.cTextHi
-                selectionColor: root.cVioDeep; selectedTextColor: root.cTextHi
+                selectionColor: root.cCrimDeep; selectedTextColor: root.cTextHi
                 echoMode: field.secret ? TextInput.Password : TextInput.Normal
                 cursorDelegate: Item {}
                 activeFocusOnTab: true
@@ -309,7 +309,7 @@ Item {
                     model: field.secret ? Math.min(input.length, 24) : 0
                     Rectangle {
                         width: 9 * root.u; height: 18 * root.u
-                        color: index === input.length - 1 ? root.cVioGlow : root.cVio
+                        color: index === input.length - 1 ? root.cCrimGlow : root.cCrim
                         opacity: 0.55 + 0.45 * ((index * 7) % 5) / 4
                     }
                 }
@@ -320,7 +320,7 @@ Item {
                 y: parent.height / 2 + 9 * root.u
                 x: 14 * root.u + (field.secret ? blocks.width + (input.length > 0 ? 4 * root.u : 0)
                                                : Math.min(input.cursorRectangle.x + 2 * root.u, well.width - 30 * root.u))
-                color: root.cVioGlow
+                color: root.cCrimGlow
                 SequentialAnimation on opacity {
                     loops: Animation.Infinite
                     NumberAnimation { to: 0.1; duration: 1 }
@@ -344,13 +344,13 @@ Item {
         width: label.implicitWidth + 36 * root.u; height: (primary ? 48 : 36) * root.u
         Rectangle {
             anchors.fill: parent; radius: 3 * root.u
-            color: btn.primary ? (btn.hot ? root.cVioLo : root.cVioDeep) : (btn.hot ? root.cRaised : Qt.rgba(0.04, 0.05, 0.09, 0.55))
-            border.width: 1; border.color: btn.hot ? root.cVioHi : (btn.primary ? root.cVio : root.cEdge)
+            color: btn.primary ? (btn.hot ? root.cCrimLo : root.cCrimDeep) : (btn.hot ? root.cRaised : Qt.rgba(0.09, 0.03, 0.04, 0.55))
+            border.width: 1; border.color: btn.hot ? root.cCrimHi : (btn.primary ? root.cCrim : root.cEdge)
             Behavior on color { ColorAnimation { duration: 140 } }
         }
         Rectangle {
             anchors.fill: parent; anchors.margins: -4 * root.u; radius: 6 * root.u
-            color: "transparent"; border.width: 3 * root.u; border.color: root.cVio
+            color: "transparent"; border.width: 3 * root.u; border.color: root.cCrim
             opacity: btn.hot ? 0.25 : 0
             Behavior on opacity { NumberAnimation { duration: 140 } }
         }
@@ -375,7 +375,7 @@ Item {
         anchors.verticalCenter: parent.verticalCenter
         anchors.verticalCenterOffset: 10 * root.u
 
-        // violet bloom behind the glass
+        // crimson bloom behind the glass
         Image {
             source: "assets/glow.png"
             anchors.centerIn: parent
@@ -386,18 +386,18 @@ Item {
             id: glass
             anchors.fill: parent
             radius: 6 * root.u
-            color: Qt.rgba(0.039, 0.047, 0.094, 0.78)
+            color: Qt.rgba(0.082, 0.031, 0.035, 0.78)
             border.width: 1; border.color: root.cEdgeHi
             clip: true
             // scanlines inside the glass too
             Image { anchors.fill: parent; source: "assets/scanlines-1080.png"; fillMode: Image.Tile; opacity: 0.8; smooth: false }
             // glow seam along the top
-            Rectangle { x: 8 * root.u; width: parent.width - 16 * root.u; y: 1; height: 2; color: root.cVio }
+            Rectangle { x: 8 * root.u; width: parent.width - 16 * root.u; y: 1; height: 2; color: root.cCrim }
             Rectangle {
                 x: 8 * root.u; width: parent.width - 16 * root.u; y: 3; height: 28 * root.u
                 gradient: Gradient {
-                    GradientStop { position: 0; color: Qt.rgba(0.48, 0.36, 1, 0.20) }
-                    GradientStop { position: 1; color: Qt.rgba(0.48, 0.36, 1, 0) }
+                    GradientStop { position: 0; color: Qt.rgba(0.86, 0.12, 0.24, 0.20) }
+                    GradientStop { position: 1; color: Qt.rgba(0.86, 0.12, 0.24, 0) }
                 }
             }
         }
@@ -410,7 +410,7 @@ Item {
 
             Row {
                 spacing: 12 * root.u
-                Rectangle { width: 6 * root.u; height: 30 * root.u; color: root.cVio; anchors.verticalCenter: parent.verticalCenter }
+                Rectangle { width: 6 * root.u; height: 30 * root.u; color: root.cCrim; anchors.verticalCenter: parent.verticalCenter }
                 Osd { size: 32; text: "BLOODFEED"; anchors.verticalCenter: parent.verticalCenter }
             }
             Text {
@@ -438,10 +438,10 @@ Item {
                 Row {
                     anchors.verticalCenter: parent.verticalCenter
                     spacing: 10 * root.u
-                    Text { text: "◀"; font.family: root.mono; font.pixelSize: 16 * root.u; color: prevArea.containsMouse ? root.cVioGlow : root.cVio
+                    Text { text: "◀"; font.family: root.mono; font.pixelSize: 16 * root.u; color: prevArea.containsMouse ? root.cCrimGlow : root.cCrim
                            MouseArea { id: prevArea; anchors.fill: parent; anchors.margins: -8; hoverEnabled: true; onClicked: root.cycleSession(-1) } }
                     Text { text: root.sessionLabel.toUpperCase(); font.family: root.mono; font.pixelSize: 15 * root.u; font.letterSpacing: 2 * root.u; color: root.cText }
-                    Text { text: "▶"; font.family: root.mono; font.pixelSize: 16 * root.u; color: nextArea.containsMouse ? root.cVioGlow : root.cVio
+                    Text { text: "▶"; font.family: root.mono; font.pixelSize: 16 * root.u; color: nextArea.containsMouse ? root.cCrimGlow : root.cCrim
                            MouseArea { id: nextArea; anchors.fill: parent; anchors.margins: -8; hoverEnabled: true; onClicked: root.cycleSession(1) } }
                 }
                 Text {
@@ -498,7 +498,7 @@ Item {
         id: beam
         anchors.centerIn: parent
         width: parent.width; height: 2
-        color: root.cVioGlow
+        color: root.cCrimGlow
         opacity: 0
     }
     Rectangle { id: blackout; anchors.fill: parent; color: root.cVoid; opacity: 0 }

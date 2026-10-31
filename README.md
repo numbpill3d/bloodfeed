@@ -1,7 +1,7 @@
 # Bloodfeed
 
-A night-vision VHS look for KDE Plasma 6, built around a cobalt-lit face on near-black:
-cobalt-black surfaces, faint scanlines and tape grain, and a slight violet glow on whatever has focus.
+A blood-dubbed VHS look for KDE Plasma 6, built around a crimson-lit face on near-black:
+blood-black surfaces, faint scanlines and tape grain, and a slight crimson glow on whatever has focus.
 It is the whole desktop, from the boot splash and login screen down to the terminal colours,
 all generated from one palette.
 
@@ -12,7 +12,7 @@ all generated from one palette.
 | ![login](screenshots/sddm.png) | ![boot](screenshots/plymouth.png) |
 | SDDM login: VCR on-screen display, tracking band, tape tears | Plymouth boot: tape-block progress, tape counter |
 | ![splash](screenshots/splash.png) | ![decoration](screenshots/decoration.png) |
-| Plasma splash: rewind → play | Aurorae decoration: scanline title, violet glow |
+| Plasma splash: rewind → play | Aurorae decoration: scanline title, crimson glow |
 
 ## Components
 
@@ -55,7 +55,7 @@ Font: Terminess Nerd Font (OFL), bundled. Kvantum engine map from KvArcDark (Tsu
 
 ## Tags
 
-`bloodfeed` `kde` `plasma6` `dark` `vhs` `scanlines` `cobalt` `violet` `purple` `retro` `analog-horror` `glow` `sddm` `plymouth` `aurorae` `kvantum` `global-theme` `icon-theme` `konsole`
+`bloodfeed` `kde` `plasma6` `dark` `vhs` `scanlines` `crimson` `red` `blood` `horror` `retro` `analog-horror` `glow` `sddm` `plymouth` `aurorae` `kvantum` `global-theme` `icon-theme` `konsole`
 
 ## Credits and licence
 

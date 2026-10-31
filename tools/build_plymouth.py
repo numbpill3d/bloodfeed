@@ -53,7 +53,7 @@ shutil.copy(A / "tracking.png", OUT / "tracking.png")
 shutil.copy(A / "glow.png", OUT / "glow.png")
 
 save(osd("PLAY ▶", 46), "osd_play.png")
-save(osd("STOP ■", 46, ink="#ffd0dc", glow=P.NEGATIVE), "osd_stop.png")
+save(osd("STOP ■", 46, ink="#ffc2a3", glow=P.NEGATIVE), "osd_stop.png")
 save(osd("REW ◀◀", 46), "osd_rew.png")
 save(osd("CH 03   SP", 22, ink=P.TEXT, bold=False), "osd_ch.png")
 save(osd("CNT", 22), "osd_cnt.png")

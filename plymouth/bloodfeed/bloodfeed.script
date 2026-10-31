@@ -4,8 +4,8 @@
 # runs. Progress is a strip of tape blocks. Everything is pre-rendered
 # (tools/build_plymouth.py). Authored for 1080p, scaled by window height.
 
-Window.SetBackgroundTopColor(0.012, 0.016, 0.039);
-Window.SetBackgroundBottomColor(0.012, 0.016, 0.039);
+Window.SetBackgroundTopColor(0.039, 0.012, 0.016);
+Window.SetBackgroundBottomColor(0.039, 0.012, 0.016);
 
 W = Window.GetWidth();
 H = Window.GetHeight();
