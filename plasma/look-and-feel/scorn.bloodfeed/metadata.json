@@ -1,0 +1,15 @@
+{
+    "KPackageStructure": "Plasma/LookAndFeel",
+    "KPlugin": {
+        "Authors": [ { "Name": "splicer scorn (voidrane)" } ],
+        "Category": "",
+        "Description": "Bloodfeed: VHS dubbed in blood. Red-black surfaces, scanlines and tape grain, crimson glow highlights.",
+        "Id": "scorn.bloodfeed",
+        "License": "GPL-3.0-or-later",
+        "Name": "Bloodfeed",
+        "Version": "1.0"
+    },
+    "Keywords": "Desktop;Workspace;Appearance;Look and Feel;Splash;",
+    "X-Plasma-APIVersion": "2",
+    "X-Plasma-MainScript": "defaults"
+}

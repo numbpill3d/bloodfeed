@@ -1,0 +1,5 @@
+backup/
+repos/
+dist/
+__pycache__/
+*.pyc

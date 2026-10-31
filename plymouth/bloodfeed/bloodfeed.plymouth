@@ -1,0 +1,8 @@
+[Plymouth Theme]
+Name=bloodfeed
+Description=Night-vision VHS boot: cobalt face under scanlines and grain, rolling tracking band, VCR on-screen display, tape-block progress
+ModuleName=script
+
+[script]
+ImageDir=/usr/share/plymouth/themes/bloodfeed
+ScriptFile=/usr/share/plymouth/themes/bloodfeed/bloodfeed.script
